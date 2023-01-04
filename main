@@ -1,0 +1,54 @@
+# 
+# This script logs into your account, and then proceeds to claim every available bounty on the flipside website
+#
+
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+#this opens up the website, don't need to if it's alread``y open
+driver = webdriver.Chrome()
+
+# First, navigate to the website
+driver.get("https://flipsidecrypto.xyz/earn")
+
+first_button = driver.find_element(By.XPATH, "//button[@id='headlessui-menu-button-:R7d6:']")
+first_button.click()
+
+second_button = driver.find_element(By.XPATH, "//button[@class='rounded-full before:rounded-full px-2 border-2 border-white/80 inline-flex text-center transition-all hover:-translate-y-1 block p-1']")
+second_button.click()
+wait = WebDriverWait(driver, 10)
+email_field = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@name='username']")))
+
+email_field.send_keys("caleb.lucas0@gmail.com")
+password_field = driver.find_element(By.XPATH, "//input[@name='password']")
+password_field.send_keys("Just4flipside1!")
+submit_button = driver.find_element(By.XPATH, "//button[@type='submit']")
+submit_button.click()
+
+
+
+elements = driver.find_elements(By.XPATH, "//a[@data-test-id='drop-item']")
+
+hrefs = []
+for element in elements:
+    # Get the href attribute of the element
+    element_url = element.get_attribute('href')
+    hrefs.append(element_url)
+    # print(hrefs)
+    
+for url in hrefs:
+    driver.get(url)
+    driver.implicitly_wait(1)
+    # next_element = driver.find_element(By.XPATH, "//button[@class='rounded-full before:rounded-full px-2 border-2 border-white/80 inline-flex text-center transition-all hover:-translate-y-1 font-syneBold text-2xl border-hidden']")
+    next_element = driver.find_element(By.XPATH, "//button[@type='submit']")
+    next_element.click()
+    driver.implicitly_wait(1)
+    # print(url)
+                                    
+
+# Wait for the button to be clickable
+wait = WebDriverWait(driver, 3)
+button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@id='headlessui-menu-button-:R7d6:']")))
