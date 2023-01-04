@@ -84,12 +84,12 @@ driver.close()
 
 
 # # List of potential passwords to try
-# passwords = ["NJcaleb@2", "Njcaleb@2", "Lovegod1!"]
+# passwords = ["", "", ""]
 
 # # Try each password until one works
 # for password in passwords:
 #     try:
-#         server.login("caleb.lucas0@gmail.com", password)
+#         server.login("your_email", password)
 #         break
 #     except smtplib.SMTPAuthenticationError:
 #         continue
@@ -105,9 +105,9 @@ driver.close()
 #     # Send an email notification if no elements contain the text
 #     server = smtplib.SMTP('smtp.gmail.com', 587)
 #     server.starttls()
-#     server.login("caleb.lucas0@gmail.com", "NJcaleb@2")
+#     server.login("your_email", "your_password")
 #     msg = "No elements contain the text 'always open' or 'ends in'"
-#     server.sendmail("caleb.lucas0@gmail.com", "caleb.lucas0@gmail.com", msg)
+#     server.sendmail("your_email", "your_amil", msg)
 #     server.quit()
 
 
