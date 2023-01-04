@@ -22,9 +22,9 @@ second_button.click()
 wait = WebDriverWait(driver, 10)
 email_field = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@name='username']")))
 
-email_field.send_keys("caleb.lucas0@gmail.com")
+email_field.send_keys("your_amil")
 password_field = driver.find_element(By.XPATH, "//input[@name='password']")
-password_field.send_keys("Just4flipside1!")
+password_field.send_keys("your_password")
 submit_button = driver.find_element(By.XPATH, "//button[@type='submit']")
 submit_button.click()
 
