@@ -1,0 +1,174 @@
+Lists the directory of available methods on selenium, however this is not accuracte and I don't know 
+why.
+
+print(dir(driver))
+
+
+
+
+
+#get's all the bounty texts besides "ends in". Wierd. 
+
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import smtplib
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+
+# Set up the webdriver to open the website
+driver = webdriver.Chrome()
+driver.get("https://flipsidecrypto.xyz/earn")
+
+elements = driver.find_elements(By.XPATH, "//span[@class='text-white font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyanHighlight via-[#7449F3] to-[#9A0EEF] font-inter']")
+for element in elements:
+    text = element.text
+    print(text)
+
+#Close the webdriver
+driver.close()
+
+# # Set up the webdriver to open the website
+# driver = webdriver.Chrome()
+# driver.get("https://flipsidecrypto.xyz/earn")
+
+# # Count the number of elements found. Should be the same number as the number of bounties (which is 9 in this case), and is true.
+# # count = len(elements)
+
+# # Print the count
+# # print(count)
+
+
+# elements = driver.find_element(By.XPATH, "//span[@class='text-white font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyanHighlight via-[#7449F3] to-[#9A0EEF] font-inter']")
+# text = elements.text
+
+# if "Always Open" or "Ends in" in text:
+#     print(text)
+# else:
+#     print("Text not found")
+
+# #Close the webdriver
+# driver.close()
+
+# element = driver.find_element(By.XPATH, "//section[@class='flex flex-col justify-center h-20']/following-sibling::*")
+# text = element.text
+# print(text)
+
+
+# element = driver.find_element(By.XPATH, "//span[@class='text-white font-semibold text-transparent bg-clip-text']")
+# text = element.text
+# print(text)
+
+# delay = 10
+# parent_element = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, "//section[@class='flex flex-col justify-center h-20']")))
+# child_elements = parent_element.find_elements(By.XPATH, "./*")
+# for child_element in child_elements:
+#     if child_element.tag_name == "span" and "text-white font-semibold text-transparent" in child_element.get_attribute("class"):
+#         text = child_element.text
+#         print(text)
+#         break
+
+
+
+
+# found = False
+# for element in elements:
+#     if "always open" in element.text or "ends in" in element.text:
+#         found = True
+#         print("bounty not avaialable")
+    
+#     else:
+#         print("the txt cannot be found, or a bounty is avaialable")
+
+
+
+# # List of potential passwords to try
+# passwords = ["NJcaleb@2", "Njcaleb@2", "Lovegod1!"]
+
+# # Try each password until one works
+# for password in passwords:
+#     try:
+#         server.login("caleb.lucas0@gmail.com", password)
+#         break
+#     except smtplib.SMTPAuthenticationError:
+#         continue
+
+# # Check if any of the elements contains the text "always open" or "ends in"
+# found = False
+# for element in elements:
+#     if "always open" in element.text or "ends in" in element.text:
+#         found = True
+#         break
+
+# if not found:
+#     # Send an email notification if no elements contain the text
+#     server = smtplib.SMTP('smtp.gmail.com', 587)
+#     server.starttls()
+#     server.login("caleb.lucas0@gmail.com", "NJcaleb@2")
+#     msg = "No elements contain the text 'always open' or 'ends in'"
+#     server.sendmail("caleb.lucas0@gmail.com", "caleb.lucas0@gmail.com", msg)
+#     server.quit()
+
+
+
+# prints text in element
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+# Set up the webdriver to open the website
+driver = webdriver.Chrome()
+driver.get("https://flipsidecrypto.xyz/earn")
+elements = driver.find_elements(By.XPATH,"//a[@data-test-id='drop-item']//*[contains(@class, 'font-semibold') and contains(@class, 'text-sm')]")
+for element in elements:
+    text = element.text
+    print(text)
+
+
+
+#Thoughts & Strategy
+
+# I also want to get notifications for when the countdown of a bountry is about to be released 
+# to search for available claims I need to inspect the page for bounties that are not in red or do not have 93/93, or not contain "always open"  
+#i.e. the left number is less than the right now after the diveder. 
+#to find any upcoming bounties posted I need to search for bounties that contain, "starts in" if it does contain that then send me a notifcation and turn on the bot and get ready to use it.   
+
+and do not contain "always open" or "ends in" but this is not perfect solution
+
+I could also create a notification for when a new bounty is added. and to check  and return the "starts in" time and to tell the bot to turn on it 1 minute before and get ready to claim it. I also want it to try and claim anyways, and send me a screenshot of the bounty 
+
+#This encompasses "class="py-8 text-center" all 3 bounty leveles. "<section class="py-16"" gets each bounty level.
+#"<a data-test-id="drop-item"" Get's each bounty 
+
+#I also want to put in a check to see how fast my script was and to see how fast the claims were filled, to see if I need to optimize. To get fany I could collect which claim number I was to see what position I'm in. 
+
+
+
+
+
+
+#This won't work and I can't figure out why 
+
+
+
+
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By
+# # Set up the webdriver to open the website
+# driver = webdriver.Chrome()
+# driver.get("https://flipsidecrypto.xyz/earn")
+
+# parent_elements = driver.find_elements(By.XPATH, "//section[@class='flex flex-col justify-center h-20']")
+# for parent_element in parent_elements:
+#     child_elements = parent_element.find_elements(By.XPATH, "./*")
+#     for child_element in child_elements:
+#         text = child_element.text
+#         if child_element.tag_name == "p" and "text-sm text-grayedWhite" in child_element.get_attribute("class"):
+#              print(text)
+#         if child_element.tag_name == "span" and "text-white font-semibold text-transparent bg-clip-text" in child_element.get_attribute("class"):
+#             print(text)
+
+# #Close the webdriver
+# driver.close()
+                
