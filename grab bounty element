@@ -1,0 +1,24 @@
+#
+# This gets the text from each bounty elemenet. I can use that text to scan for available bounties
+#
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+# Set up the webdriver to open the website
+driver = webdriver.Chrome()
+driver.get("https://flipsidecrypto.xyz/earn")
+
+parent_elements = driver.find_elements(By.XPATH, "//section[@class='flex flex-col justify-center h-20']")
+for parent_element in parent_elements:
+    child_elements = parent_element.find_elements(By.XPATH, "./*")
+    for child_element in child_elements:
+        text = child_element.text
+        print(text)
+
+        
+        
+# if not text contains (1,2,3,4,5,6,7,8,9, "Ends in"):
+    
+#Close the webdriver
+driver.close()
